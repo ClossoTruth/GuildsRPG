@@ -1,0 +1,37 @@
+
+
+GuildEvent
+
+onKill
+
+if($this->prefs->get("EnableGCPointOnKill") == true || $this->prefs->get("EnableWarPointOnKill") == true){
+
+$this->sendPopup("");
+ 
+}
+elseif($this->prefs->get("") == true || $this->prefs->get("") == false){
+
+
+}
+
+elseif($this->prefs->get("") == false || $this->prefs->get("") == true){
+
+}
+
+elseif($this->prefs->get("") == false || $this->prefs->get("") == false){
+
+}
+
+
+
+config.yml
+
+ " "
+ " " 
+ 
+ 
+
+
+
+
+
