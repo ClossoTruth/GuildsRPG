@@ -2,10 +2,6 @@
 
 namespace GuildsRPG;
 
-/*/
- * This Plugin Just For FUN.
-/*/
-
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
@@ -37,8 +33,8 @@ class GCore extends PluginBase implements Listener {
         $completemsg = Z::GREEN . "Complete!";
         $loadmsg = Z::AQUA . "GCore ONLINE!";
         $this->getLogger()->notice($loadingmsg);
-        $this->getLogger()->warning($completemsg);
-        $this->getLogger()->error($loadmsg);
+        $this->getLogger()->notice($completemsg);
+        $this->getLogger()->notice($loadmsg);
     }
     public function onEnable(){
         @mkdir($this->getDataFolder());
@@ -50,12 +46,13 @@ class GCore extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents(new GuildsEvents($this), $this);
         $this->guildsCommand = new GuildsCommands($this);
         $this->settings = new Config($this->getDataFolder() . "GuildsOptions.yml", CONFIG::YAML, array(
+	    "###Normal Settings###",
             "MaxGuildNameLength" => 15,
             "MaxPlayersPerguild" => 30,
             "OnlyGuildsMasterAndSecondInCommandsCanInvite" => true,
             "###Plots###",
-		    "SecondInCommandsCanClaim" => false,
-	    	"PlotSize" => 30,
+	    "SecondInCommandsCanClaim" => false,
+	    "PlotSize" => 30,
             "PlayersNeededInGuildToClaimAPlot" => 5,
             "ClaimWorlds" => [],
             "###Guilds Point###",
@@ -63,7 +60,7 @@ class GCore extends PluginBase implements Listener {
             "PointNeededToSetOrUpdateAHome" => 250,
             "PointGainedPerPlayerInGuild" => 50,
             "PointGainedPerKillingAnEnemy" => 10,
-    		"PointReducedPerDeathByAnEnemy" => 10,
+    	    "PointReducedPerDeathByAnEnemy" => 10,
             "PointGainedPerAlliance" => 100,
             "AllianceLimitPerGuild" => 5,
             "AllianceLimitPerGuild" => 5,
@@ -72,11 +69,11 @@ class GCore extends PluginBase implements Listener {
             "TheDefaultWarPointsEveryGuildStartsWith" => 0,
             "###Economys###",
             "CreateCost" => 3000,
-		    "ClaimCost" => 100000,
-	    	"OverClaimCost" => 25000,
-	    	"AllianceCost" => 5000,
-	    	"AlliancePrice" => 5000,
-	    	"SetHomeCost" => 150,
+	    "ClaimCost" => 100000,
+      	    "OverClaimCost" => 25000,
+	    "AllianceCost" => 5000,
+	    "AlliancePrice" => 5000,
+	    "SetHomeCost" => 150,
             "###GuildsMoneys###",
             "GuildsMoneyGainPerKill" => 10,
             "GuildsMoneyLostPerDeath" => 10,
@@ -94,9 +91,9 @@ class GCore extends PluginBase implements Listener {
         $this->db->exec("CREATE TABLE IF NOT EXISTS alliances(ID INT PRIMARY KEY, guild1 TEXT, guild2 TEXT);");
         $this->db->exec("CREATE TABLE IF NOT EXISTS nemisys(ID INT PRIMARY KEY, guild1 TEXT, guild2 TEXT);");
         $this->db->exec("CREATE TABLE IF NOT EXISTS alliancecountlimit(guild TEXT PRIMARY KEY, count INT);");
-		$this->db->exec("CREATE TABLE IF NOT EXISTS effects(guild TEXT PRIMARY KEY, effect TEXT);");
+	$this->db->exec("CREATE TABLE IF NOT EXISTS effects(guild TEXT PRIMARY KEY, effect TEXT);");
         $this->db->exec("CREATE TABLE IF NOT EXISTS moneys(guild TEXT PRIMARY KEY, moneys INT);");
-		$this->db->exec("CREATE TABLE IF NOT EXISTS boosters(guild TEXT PRIMARY KEY, booster TEXT);");
+	$this->db->exec("CREATE TABLE IF NOT EXISTS boosters(guild TEXT PRIMARY KEY, booster TEXT);");
         $this->db->exec("CREATE TABLE IF NOT EXISTS wp(guild TEXT PRIMARY KEY, warpoints INT);");
         $this->db->exec("CREATE TABLE IF NOT EXISTS nemisyscountlimit(guild TEXT PRIMARY KEY, count INT);");
     }
