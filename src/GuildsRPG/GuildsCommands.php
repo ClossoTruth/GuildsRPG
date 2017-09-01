@@ -71,7 +71,7 @@ class GuildsCommands {
 		$topLeftPs = new Vector3($centerPs->x + -$halfWidth, 0, $centerPs->z + -$halfHeight);
 
 		// Get the compass
-		//$asciiCompass = ASCIICompass::getASCIICompass($inDegrees, Z::RED, Z::GOLD);
+		$asciiCompass = ASCIICompass::getASCIICompass($inDegrees, Z::RED, Z::GOLD);
 
 		// Make room for the list of names
 		$height--;
@@ -110,9 +110,9 @@ class GuildsCommands {
 			$line = $row; // ... ---------------
 
 			// Add the compass
-			//if ($dz == 0) $line = $asciiCompass[0] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
-			//if ($dz == 1) $line = $asciiCompass[1] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
-			//if ($dz == 2) $line = $asciiCompass[2] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
+			if ($dz == 0) $line = $asciiCompass[0] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
+			if ($dz == 1) $line = $asciiCompass[1] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
+			if ($dz == 2) $line = $asciiCompass[2] . "" . substr($row, 3 * strlen(self::MAP_KEY_SEPARATOR);
 
 			$map[] = $line;
 		}
@@ -1645,7 +1645,7 @@ class GuildsCommands {
                     }
                     //Thanks To The original authors Tethered_
                     //Thank To The Supporter
-                    //Big Thanks To NeuroBinds Project Corporation For Helping 64% Of The Code!
+			//Thanks To Me
                 }
             }
         } else {
